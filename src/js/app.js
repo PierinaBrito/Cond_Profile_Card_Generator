@@ -33,7 +33,11 @@ function render(variables = {}) {
   if (variables.lastname == null) variables.lastname = "Surname";
   if (variables.twitter == null) variables.twitter = "";
   if (variables.github == null) variables.github = "";
-  if (variables.linkedin == null) variables.linkedin = "";
+  if (variables.linkedin == null) {
+    variables.linkedin = "";
+  } else {
+    variables.linkedin = `in/${variables.linkedin}`;
+  }
   if (variables.instagram == null) variables.instagram = "";
   if (variables.role == null) variables.role = "Role";
   if (variables.city == null) variables.city = "City";
@@ -47,10 +51,10 @@ function render(variables = {}) {
           <h2>${variables.role}</h2>
           <h3>${variables.city}, ${variables.country}</h3>
           <ul class=${variables.socialMediaPosition}>
-            <li><a target="_blank" href="https://twitter.com/${variables.twitter}"><i class="fa-brands fa-twitter"></i></a></li>
+            <li><a target="_blank" href="https://twitter.com/${variables.twitter}"><i class="fab fa-twitter"></i></a></li>
             <li><a target="_blank" href="https://github.com/${variables.github}"><i class="fab fa-github"></i></a></li>
             <li><a target="_blank" href="https://linkedin.com/${variables.linkedin}"><i class="fab fa-linkedin"></i></a></li>
-            <li><a target="_blank" href="https://instagram.com/${variables.instagram}"><i class="fa-brands fa-instagram"></i></a></li>
+            <li><a target="_blank" href="https://instagram.com/${variables.instagram}"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
@@ -70,15 +74,15 @@ window.onload = function() {
     // social media bar position (left or right)
     socialMediaPosition: "position-left",
     // social media usernames
-    twitter: "Username",
-    github: "Username",
-    linkedin: "Username",
-    instagram: "Username",
-    name: "Name",
-    lastname: "Surname",
-    role: "Role",
-    country: "Country",
-    city: "City"
+    twitter: null,
+    github: "alesanchezr",
+    linkedin: null,
+    instagram: null,
+    name: null,
+    lastname: null,
+    role: null,
+    country: null,
+    city: null
   };
   render(window.variables); //render the card for the first time
 
